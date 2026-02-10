@@ -286,4 +286,3 @@ footer { background: rgba(5, 10, 20, 0.9); padding: 40px 0; text-align: center; 
     .modal-info-box h3 { font-size: 1.4rem; }
     .close-modal { top: 15px; right: 15px; font-size: 2.5rem; color: white; background: rgba(0,0,0,0.5); padding: 0 10px; border-radius: 5px;}
 }
-/* w sekcji header index.html mamy aktualnie jeden filmik zróbmy tak jak ma to https://www.volkswagen.pl/pl.html kilka filmików ale krótszych w prawym dolnym rogu header 4 kropki - każda z nich odpowiada za jedne filmik, w momencie jak filmik jest aktywny kropka zamienia się w pasek ile trwa jeszcze filmik. pod bokach strzałki prawie przezroczyste, które zmieniają, który filmik aktualnie gra, jeżeli dojdziemy do filmiku 4 wróć do filmiku 1, jeżeli jesteśmy na filmiku 1 i przesuniemy w lewo pójdź do filmiku 4. Zautomatyzuj odtwarzanie tych filmów w pętli 1 potem 2 potem 3 potem 4. Dodaj małe opisy na szklanym tle każdego filmiku, które opowiedzą co się dzieje. filmik 1  */
