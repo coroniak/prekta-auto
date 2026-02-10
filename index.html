@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prekta Auto | Premium Service</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Prekta Auto Artur Pawlak - Serwis Premium VAG Łódź.">
+    <title>Prekta Auto | Premium Service Łódź</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <nav id="navbar">
         <div class="container nav-container">
             <a href="index.html" class="logo">PREKTA <span class="accent">AUTO</span></a>
@@ -28,76 +28,124 @@
         </div>
     </nav>
 
-    <header id="hero">
-        <video autoplay muted loop playsinline class="video-bg" poster="image.jpg">
-            <source src="header-video.mp4" type="video/mp4">
-        </video>
-        <div class="video-overlay"></div>
-        <div class="hero-content fade-up">
-            <span class="hero-subtitle">Artur Pawlak — Łódź</span>
-            <h1>Inżynieryjna precyzja.<br>Pasja do motoryzacji.</h1>
-            <p>Autoryzowana jakość dla marek Porsche, Bentley, Maserati, Audi.</p>
-            <div style="margin-top: 30px;">
-                <a href="oferta.html" class="btn-premium">Zobacz Realizacje</a>
+    <header id="hero-slider">
+        <div class="slide active">
+            <video muted playsinline poster="image.jpg">
+                <source src="video.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+            <div class="hero-content fade-up">
+                <span class="hero-subtitle">Porsche — Konwersja Multimediów</span>
+                <h1>Twój System <br>Po Polsku</h1>
+                <p>Profesjonalna zmiana języka oprogramowania z japońskiego na polski oraz aktualizacja map nawigacji PCM.</p>
+                <div class="hero-btn-wrapper">
+                    <a href="kontakt.html" class="btn-premium">Kontakt</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <video muted playsinline poster="image.jpg">
+                <source src="video1.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+            <div class="hero-content fade-up">
+                <span class="hero-subtitle">Maserati — Renowacja Wnętrza</span>
+                <h1>Precyzja <br>Detalu</h1>
+                <p>Demontaż deski rozdzielczej i kompleksowe obszywanie skórą najwyższej jakości.</p>
+                <div class="hero-btn-wrapper">
+                    <a href="oferta.html" class="btn-premium">Oferta</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <video muted playsinline poster="image.jpg">
+                <source src="video2.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+            <div class="hero-content fade-up">
+                <span class="hero-subtitle">Bentley — Konwersja USA/EU</span>
+                <h1>Standard <br>Europejski</h1>
+                <p>Wymiana lamp przednich, montaż czujników parkowania oraz pełna adaptacja elektroniki do wymogów EU.</p>
+                <div class="hero-btn-wrapper">
+                    <a href="onas.html" class="btn-premium">O Nas</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-bottom-gradient"></div>
+
+        <div class="slider-pagination-container">
+            <button id="play-pause-btn" class="control-btn">
+                <i class="fas fa-pause"></i>
+            </button>
+            <div class="slider-pagination">
+                <div class="pag-dot active" data-index="0"><div class="progress-bar"></div></div>
+                <div class="pag-dot" data-index="1"><div class="progress-bar"></div></div>
+                <div class="pag-dot" data-index="2"><div class="progress-bar"></div></div>
             </div>
         </div>
     </header>
 
-<section class="section mosaic-section">
-    <div class="container">
-        <h2 class="section-title fade-up">Ekskluzywna Inżynieria</h2>
-        <p class="fade-up">Jesteśmy jednym z nielicznych warsztatów w Polsce podejmujących się kompleksowych napraw jednostek W12 oraz V10.</p>
-        
-        <div class="mosaic-grid fade-up">
-            <div class="mosaic-item item-large" 
-                 data-title="Serce Bestii: Bentley W12" 
-                 data-description="Jednostka 6.0L W12 Twin-Turbo to szczyt inżynierii grupy VAG. Wykonujemy kompleksowe remonty tych silników, w tym wymianę łańcuchów rozrządu, regenerację turbosprężarek i uszczelnianie, przywracając im fabryczną moc 600+ KM.">
-                <img src="image2.jpg" alt="Silnik Bentley W12">
-                <div class="mosaic-overlay">
-                    <h3 class="accent">Serce Bestii</h3>
-                    <p style="color:white; margin:0;">Bentley Continental GT W12 - Kliknij, aby zobaczyć detale.</p>
+    <section class="section mosaic-section">
+        <div class="container">
+            <h2 class="section-title fade-up">Ekskluzywna Inżynieria</h2>
+            <p class="fade-up">Jesteśmy jednym z nielicznych warsztatów w Polsce podejmujących się kompleksowych napraw jednostek W12 oraz V10.</p>
+            
+            <div class="mosaic-grid fade-up">
+                <div class="mosaic-item item-large" 
+                     data-title="Serce Bestii: Bentley W12" 
+                     data-description="Jednostka 6.0L W12 Twin-Turbo to szczyt inżynierii grupy VAG. Wykonujemy kompleksowe remonty tych silników.">
+                    <img src="image2.jpg" alt="Silnik Bentley W12">
+                    <div class="mosaic-overlay">
+                        <h3 class="accent">Serce Bestii</h3>
+                        <p style="color:white; margin:0;">Bentley Continental GT W12</p>
+                    </div>
+                </div>
+                
+                <div class="mosaic-item"
+                     data-title="Luksus i Technologia"
+                     data-description="Wnętrze Bentleya to połączenie szlachetnych materiałów z zaawansowaną elektroniką.">
+                    <img src="image3.jpg" alt="Wnętrze Bentley">
+                    <div class="mosaic-overlay">
+                        <h3 class="accent">Wnętrze</h3>
+                        <p style="color:white; margin:0;">Elektronika komfortu.</p>
+                    </div>
+                </div>
+                
+                <div class="mosaic-item"
+                     data-title="Design i Bezpieczeństwo"
+                     data-description="Obsługa nowoczesnych aut to także kalibracja systemów bezpieczeństwa ADAS.">
+                    <img src="image4.jpg" alt="Bentley Front">
+                    <div class="mosaic-overlay">
+                        <h3 class="accent">Design & ADAS</h3>
+                        <p style="color:white; margin:0;">Diagnostyka systemów radarowych.</p>
+                    </div>
                 </div>
             </div>
-            
-            <div class="mosaic-item"
-                 data-title="Luksus i Technologia"
-                 data-description="Wnętrze Bentleya to połączenie szlachetnych materiałów z zaawansowaną elektroniką. Diagnozujemy i naprawiamy systemy komfortu, multimedia, a także zajmujemy się renowacją elementów skórzanych i drewnianych.">
-                <img src="image3.jpg" alt="Wnętrze Bentley">
-                <div class="mosaic-overlay">
-                    <h3 class="accent">Wnętrze</h3>
-                    <p style="color:white; margin:0;">Elektronika komfortu.</p>
-                </div>
+        </div>
+    </section>
+
+    <div id="image-modal" class="modal-overlay">
+        <span class="close-modal">&times;</span>
+        <div class="modal-container">
+            <div class="modal-image-box">
+                <img id="modal-img" src="" alt="Powiększone zdjęcie">
             </div>
-            
-            <div class="mosaic-item"
-                 data-title="Design i Bezpieczeństwo"
-                 data-description="Obsługa nowoczesnych aut to także kalibracja systemów bezpieczeństwa. Po naprawach blacharskich lub wymianie szyby, wykonujemy precyzyjną kalibrację radarów ACC i kamer asystentów pasa ruchu.">
-                <img src="image4.jpg" alt="Bentley Front">
-                <div class="mosaic-overlay">
-                    <h3 class="accent">Design & ADAS</h3>
-                    <p style="color:white; margin:0;">Diagnostyka systemów radarowych.</p>
-                </div>
+            <div class="modal-info-box">
+                <h3 id="modal-title" class="accent">Tytuł zdjęcia</h3>
+                <p id="modal-description">Opis zdjęcia.</p>
             </div>
         </div>
     </div>
-</section>
 
-<div id="image-modal" class="modal-overlay">
-    <span class="close-modal">&times;</span>
-    <div class="modal-container">
-        <div class="modal-image-box">
-            <img id="modal-img" src="" alt="Powiększone zdjęcie">
+    <footer>
+        <div class="container footer-content">
+            <p>© 2024 Prekta Auto Artur Pawlak. Wszelkie prawa zastrzeżone.</p>
         </div>
-        <div class="modal-info-box">
-            <h3 id="modal-title" class="accent">Tytuł zdjęcia</h3>
-            <p id="modal-description">Opis zdjęcia.</p>
-        </div>
-    </div>
-</div>
+    </footer>
 
-<footer>
-    <div class="container"><p>© 2024 Prekta Auto Artur Pawlak.</p></div>
-</footer>
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
