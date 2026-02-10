@@ -1,0 +1,387 @@
+/* --- Zmienne i Reset --- */
+:root {
+    /* Paleta kolorów inspirowana premium automotive (np. Bentley) */
+    --bg-dark: #111111;      /* Główny ciemny */
+    --bg-darker: #0a0a0a;    /* Ciemniejszy odcień dla kontrastu */
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    /* Kolor akcentu - miedziany/złoty, elegancki */
+    --accent: #c0a062; 
+    --font-stack: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-stack);
+    background-color: var(--bg-darker);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- Typografia --- */
+h1, h2, h3 {
+    font-weight: 400; /* Cieńsze nagłówki jak w markach premium */
+    letter-spacing: -0.5px;
+}
+
+h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+h2.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+p.lead-text {
+    font-size: 1.25rem;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+}
+
+p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-weight: 300;
+}
+
+.accent { color: var(--accent); }
+.accent-link { color: var(--accent); text-decoration: none; transition: 0.3s; }
+.accent-link:hover { color: white; }
+.center { text-align: center; }
+
+/* --- Layout & Kontenery --- */
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.section {
+    padding: 100px 0;
+}
+
+.dark-bg { background-color: var(--bg-dark); }
+.darker-bg { background-color: var(--bg-darker); }
+.relative { position: relative; }
+
+.two-col-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* --- Komponenty Premium --- */
+/* Przyciski */
+.btn-premium {
+    display: inline-block;
+    padding: 14px 32px;
+    background-color: var(--accent);
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid var(--accent);
+}
+
+.btn-premium:hover {
+    background-color: transparent;
+    color: var(--accent);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+}
+
+.btn-outline:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+.btn-sm { padding: 10px 20px; font-size: 0.8rem;}
+
+/* --- Płynny Design (The "Porsche Effect") --- */
+
+/* Klasa dla sekcji z obrazem w tle */
+.fluid-section {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efekt Parallax */
+}
+
+/* Gradienty blendujące */
+.gradient-overlay-bottom {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    /* Kluczowy gradient: od lekko ciemnego do pełnego koloru tła następnej sekcji */
+    background: linear-gradient(to bottom, rgba(10,10,10,0.4) 0%, rgba(10,10,10,0.8) 60%, var(--bg-dark) 100%);
+    z-index: 1;
+}
+
+.gradient-overlay-full {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(rgba(10,10,10,0.7), rgba(10,10,10,0.7));
+    z-index: 1;
+}
+
+/* --- Sekcja Hero --- */
+/* --- Aktualizacja dla Wideo Hero --- */
+
+#hero {
+    position: relative;
+    height: 100vh; /* Pełna wysokość ekranu */
+    width: 100%;
+    overflow: hidden; /* Ukrywa wszystko co wystaje poza ekran */
+    display: flex;
+    align-items: center;
+    /* Usuwamy stare zdjęcie tła, bo teraz mamy wideo */
+    background-image: none; 
+    background-color: var(--bg-darker);
+}
+
+.video-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -3; /* Najgłębsza warstwa */
+    transform: translate(-50%, -50%); /* Wyśrodkowanie wideo */
+    object-fit: cover; /* Kluczowe: wideo pokrywa cały ekran bez deformacji */
+}
+
+/* Ciemna warstwa na całym wideo, żeby tekst był czytelny */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* 50% przyciemnienia - dostosuj wg uznania */
+    z-index: -2;
+}
+
+/* Poprawka dla gradientu dolnego przy wideo */
+.gradient-overlay-bottom {
+    z-index: -1;
+    /* Bardziej agresywny gradient od dołu, żeby ukryć koniec wideo */
+    background: linear-gradient(to bottom, transparent 0%, rgba(17,17,17,0.6) 70%, var(--bg-darker) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+}
+
+.hero-subtitle {
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* --- Nawigacja --- */
+#navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 0;
+    z-index: 100;
+    transition: all 0.4s ease;
+    background: transparent; /* Początkowo przezroczysta */
+}
+
+#navbar.scrolled {
+    background: rgba(10, 10, 10, 0.95); /* Ciemne tło po przewinięciu */
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: rgba(255,255,255,0.7);
+    padding: 0 20px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: var(--accent);
+}
+
+/* --- Sekcja O Nas (Blending Image) --- */
+.content-image-wrapper {
+    position: relative;
+    height: 100%;
+    min-height: 400px;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.fluid-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Gradient nałożony na zdjęcie w sekcji O Nas, żeby "wtopić" je w tło */
+.image-gradient-blend {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    /* Gradient poziomy, bo zdjęcie jest z prawej */
+    background: linear-gradient(to right, var(--bg-dark) 0%, transparent 30%, transparent 70%, var(--bg-dark) 100%);
+}
+
+/* --- Usługi Grid --- */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.service-card {
+    background: rgba(255,255,255,0.02); /* Bardzo subtelne tło */
+    padding: 40px 30px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-5px);
+    background: rgba(255,255,255,0.04);
+}
+
+.service-card i {
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin-bottom: 25px;
+}
+
+.service-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+/* --- CTA Section --- */
+.cta-section {
+    padding: 150px 0;
+    text-align: center;
+    /* ZDJĘCIE CTA - Podmień na własne */
+    background-image: url('https://images.unsplash.com/photo-1617886825786-e9f57f5f725c?q=80&w=1600&auto=format&fit=crop');
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+}
+.cta-content h2 { font-size: 2.5rem; margin-bottom: 20px; }
+
+/* --- Kontakt --- */
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.contact-item i {
+    color: var(--accent);
+    font-size: 1.2rem;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+.contact-item h4 { font-size: 1rem; margin-bottom: 5px; color: white;}
+
+.map-wrapper {
+    height: 100%;
+    min-height: 400px;
+    border-radius: 4px;
+    overflow: hidden;
+    filter: grayscale(100%) invert(92%) contrast(83%); /* Mapa w odcieniach szarości */
+}
+
+/* Status otwarcia */
+.status-box {
+    margin-top: 10px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+.status-dot {
+    width: 8px; height: 8px; border-radius: 50%; margin-right: 8px;
+    background-color: #555;
+}
+.status-dot.open { background-color: #2ecc71; box-shadow: 0 0 10px rgba(46, 204, 113, 0.4);}
+.status-dot.closed { background-color: #e74c3c; }
+
+/* --- Footer --- */
+footer {
+    background: var(--bg-darker);
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+footer .credit { font-size: 0.8rem; opacity: 0.5; margin-top: 10px;}
+
+/* --- Animacje Scrolla (Fade Up) --- */
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.fade-up.appeared {
+    opacity: 1;
+    transform: translateY(0);
+}
+.delay-2 { animation-delay: 0.2s; }
