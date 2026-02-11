@@ -35,12 +35,12 @@
             </video>
             <div class="video-overlay"></div>
             <div class="hero-content fade-up">
-                <span class="hero-subtitle">Porsche — Konwersja Multimediów</span>
-                <h1>Twój System <br>Po Polsku</h1>
-                <p>Profesjonalna zmiana języka oprogramowania z japońskiego na polski oraz aktualizacja map nawigacji PCM.</p>
-                <div class="hero-btn-wrapper">
-                    <a href="kontakt.html" class="btn-premium">Kontakt</a>
-                </div>
+                <span class="hero-subtitle">Systemy Multimedialne</span>
+                <h1>Komfort w Twoim Języku</h1>
+                <p>Adaptacja oprogramowania, aktualizacje nawigacji oraz pełna konwersja systemów importowanych.</p>
+            </div>
+            <div class="hero-btn-absolute">
+                <a href="kontakt.html" class="btn-premium">Kontakt</a>
             </div>
         </div>
 
@@ -50,12 +50,12 @@
             </video>
             <div class="video-overlay"></div>
             <div class="hero-content fade-up">
-                <span class="hero-subtitle">Maserati — Renowacja Wnętrza</span>
-                <h1>Precyzja <br>Detalu</h1>
-                <p>Demontaż deski rozdzielczej i kompleksowe obszywanie skórą najwyższej jakości.</p>
-                <div class="hero-btn-wrapper">
-                    <a href="oferta.html" class="btn-premium">Oferta</a>
-                </div>
+                <span class="hero-subtitle">Wnętrze Premium</span>
+                <h1>Precyzja Detalu</h1>
+                <p>Zaawansowane prace przy elektronice pokładowej i elementach wykończenia wnętrza.</p>
+            </div>
+            <div class="hero-btn-absolute">
+                <a href="oferta.html" class="btn-premium">Oferta</a>
             </div>
         </div>
 
@@ -65,12 +65,12 @@
             </video>
             <div class="video-overlay"></div>
             <div class="hero-content fade-up">
-                <span class="hero-subtitle">Bentley — Konwersja USA/EU</span>
-                <h1>Standard <br>Europejski</h1>
-                <p>Wymiana lamp przednich, montaż czujników parkowania oraz pełna adaptacja elektroniki do wymogów EU.</p>
-                <div class="hero-btn-wrapper">
-                    <a href="onas.html" class="btn-premium">O Nas</a>
-                </div>
+                <span class="hero-subtitle">Elektronika & Adaptacja</span>
+                <h1>Europejski Standard</h1>
+                <p>Dostosowanie oświetlenia i systemów bezpieczeństwa do wymogów prawnych UE.</p>
+            </div>
+            <div class="hero-btn-absolute">
+                <a href="onas.html" class="btn-premium">O Nas</a>
             </div>
         </div>
 
@@ -78,7 +78,7 @@
 
         <div class="slider-pagination-container">
             <button id="play-pause-btn" class="control-btn">
-                <i class="fas fa-pause"></i>
+                <span id="play-pause-icon" class="icon-pause"></span>
             </button>
             <div class="slider-pagination">
                 <div class="pag-dot active" data-index="0"><div class="progress-bar"></div></div>
@@ -91,22 +91,22 @@
     <section class="section mosaic-section">
         <div class="container">
             <h2 class="section-title fade-up">Ekskluzywna Inżynieria</h2>
-            <p class="fade-up">Jesteśmy jednym z nielicznych warsztatów w Polsce podejmujących się kompleksowych napraw jednostek W12 oraz V10.</p>
+            <p class="fade-up">Kompleksowa obsługa zaawansowanych jednostek napędowych.</p>
             
             <div class="mosaic-grid fade-up">
                 <div class="mosaic-item item-large" 
-                     data-title="Serce Bestii: Bentley W12" 
-                     data-description="Jednostka 6.0L W12 Twin-Turbo to szczyt inżynierii grupy VAG. Wykonujemy kompleksowe remonty tych silników.">
+                     data-title="Silnik W12" 
+                     data-description="Kompleksowe remonty, wymiana rozrządów i regeneracja podzespołów w silnikach widlastych.">
                     <img src="image2.jpg" alt="Silnik Bentley W12">
                     <div class="mosaic-overlay">
                         <h3 class="accent">Serce Bestii</h3>
-                        <p style="color:white; margin:0;">Bentley Continental GT W12</p>
+                        <p style="color:white; margin:0;">Silnik W12 Twin-Turbo</p>
                     </div>
                 </div>
                 
                 <div class="mosaic-item"
-                     data-title="Luksus i Technologia"
-                     data-description="Wnętrze Bentleya to połączenie szlachetnych materiałów z zaawansowaną elektroniką.">
+                     data-title="Wnętrze Luxury"
+                     data-description="Diagnostyka i naprawa systemów komfortu w autach segmentu F.">
                     <img src="image3.jpg" alt="Wnętrze Bentley">
                     <div class="mosaic-overlay">
                         <h3 class="accent">Wnętrze</h3>
@@ -115,12 +115,12 @@
                 </div>
                 
                 <div class="mosaic-item"
-                     data-title="Design i Bezpieczeństwo"
-                     data-description="Obsługa nowoczesnych aut to także kalibracja systemów bezpieczeństwa ADAS.">
+                     data-title="Systemy ADAS"
+                     data-description="Kalibracja radarów i kamer systemów bezpieczeństwa.">
                     <img src="image4.jpg" alt="Bentley Front">
                     <div class="mosaic-overlay">
-                        <h3 class="accent">Design & ADAS</h3>
-                        <p style="color:white; margin:0;">Diagnostyka systemów radarowych.</p>
+                        <h3 class="accent">ADAS</h3>
+                        <p style="color:white; margin:0;">Systemy radarowe.</p>
                     </div>
                 </div>
             </div>
@@ -128,7 +128,7 @@
     </section>
 
     <div id="image-modal" class="modal-overlay">
-        <span class="close-modal">&times;</span>
+        <span class="close-modal">×</span>
         <div class="modal-container">
             <div class="modal-image-box">
                 <img id="modal-img" src="" alt="Powiększone zdjęcie">

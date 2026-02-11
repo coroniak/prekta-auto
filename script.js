@@ -1,22 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. SMART NAVBAR (Chowanie przy scrollu w dół, pokazywanie w górę)
+    // --- 1. SMART NAVBAR (Chowanie przy scrollu) ---
     const navbar = document.getElementById('navbar');
     let lastScrollTop = 0;
     
     window.addEventListener('scroll', () => {
         let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         if (scrollTop > lastScrollTop && scrollTop > 100) {
-            // Scroll w dół - schowaj
             navbar.classList.add('nav-hidden');
         } else {
-            // Scroll w górę - pokaż
             navbar.classList.remove('nav-hidden');
         }
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     });
 
-    // 2. Animacje Scrolla
+    // --- 2. Animacje Scrolla (Fade Up) ---
     const faders = document.querySelectorAll('.fade-up');
     const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
     const appearOnScroll = new IntersectionObserver((entries, observer) => {
@@ -28,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, appearOptions);
     faders.forEach(fader => appearOnScroll.observe(fader));
 
-    // 3. Obsługa Menu
+    // --- 3. Obsługa Menu Burger ---
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.nav-links');
     function toggleMenu() {
@@ -46,42 +44,43 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 4. Highlight Active Link
+    // --- 4. Podświetlanie Aktywnego Linku ---
     const currentPage = window.location.pathname.split("/").pop() || "index.html";
     document.querySelectorAll('.nav-links li a').forEach(link => {
         if (link.getAttribute('href') === currentPage) link.classList.add('active-page');
     });
 
-    // 5. VIDEO SLIDER (Optimized + Play/Pause + Dots)
+    // --- 5. SLIDER WIDEO (VW Style) ---
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.pag-dot');
     const playPauseBtn = document.getElementById('play-pause-btn');
-    const playPauseIcon = playPauseBtn ? playPauseBtn.querySelector('i') : null;
+    const playPauseIcon = document.getElementById('play-pause-icon');
     let currentSlide = 0;
     let isPlaying = true;
     
     if(slides.length > 0) {
-        // Init state
+        // Stan początkowy
         updateSlideState(0);
 
         function updateSlideState(index) {
-            // Pauzuj wszystkie
+            // Pauzuj i resetuj inne filmy
             slides.forEach((s, i) => {
                 const v = s.querySelector('video');
                 if(v) {
                     v.pause();
-                    if(i !== index) v.currentTime = 0; // Reset others
+                    if(i !== index) v.currentTime = 0;
                 }
                 s.classList.remove('active');
                 dots[i].classList.remove('active');
                 dots[i].querySelector('.progress-bar').style.width = '0%';
             });
 
-            // Aktywuj wybrany
+            // Aktywuj nowy slajd
             currentSlide = index;
             slides[index].classList.add('active');
             dots[index].classList.add('active');
             
+            // Odtwarzaj wideo
             const activeVideo = slides[index].querySelector('video');
             if(activeVideo && isPlaying) activeVideo.play();
         }
@@ -90,13 +89,13 @@ document.addEventListener('DOMContentLoaded', () => {
             updateSlideState((currentSlide + 1) % slides.length);
         }
 
-        // Eventy dla filmów (Automatyczne przełączanie i pasek)
+        // Obsługa zdarzeń wideo
         slides.forEach((slide, index) => {
             const video = slide.querySelector('video');
             if(video) {
-                video.addEventListener('ended', () => {
-                    nextSlide(); // Auto next po zakończeniu
-                });
+                // Gdy film się skończy -> następny
+                video.addEventListener('ended', nextSlide);
+                // Aktualizacja paska postępu
                 video.addEventListener('timeupdate', () => {
                     if(slides[index].classList.contains('active')) {
                         const progress = (video.currentTime / video.duration) * 100;
@@ -106,12 +105,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Kliknięcie w kropki
+        // Obsługa kropek
         dots.forEach(dot => {
             dot.addEventListener('click', () => {
                 const index = parseInt(dot.getAttribute('data-index'));
                 if(index !== currentSlide) {
-                    // Wznów odtwarzanie jeśli było zapauzowane (UX choice)
                     if(!isPlaying) togglePlayPause(); 
                     updateSlideState(index);
                 }
@@ -123,30 +121,32 @@ document.addEventListener('DOMContentLoaded', () => {
             const activeVideo = slides[currentSlide].querySelector('video');
             if(isPlaying) {
                 activeVideo.pause();
-                playPauseIcon.classList.remove('fa-pause');
-                playPauseIcon.classList.add('fa-play');
+                // Zmieniamy ikonę na Play (trójkąt)
+                playPauseIcon.classList.remove('icon-pause');
+                playPauseIcon.classList.add('icon-play');
                 isPlaying = false;
             } else {
                 activeVideo.play();
-                playPauseIcon.classList.remove('fa-play');
-                playPauseIcon.classList.add('fa-pause');
+                // Zmieniamy ikonę na Pause (paski)
+                playPauseIcon.classList.remove('icon-play');
+                playPauseIcon.classList.add('icon-pause');
                 isPlaying = true;
             }
         }
         if(playPauseBtn) playPauseBtn.addEventListener('click', togglePlayPause);
 
-        // Resume on focus (Fix for browser blocking)
+        // Wznawianie po powrocie na kartę
         document.addEventListener('visibilitychange', () => {
             const activeVideo = slides[currentSlide].querySelector('video');
             if (!document.hidden && isPlaying && activeVideo.paused) {
                 activeVideo.play();
             } else if (document.hidden && isPlaying) {
-                activeVideo.pause(); // Oszczędzanie zasobów w tle
+                activeVideo.pause();
             }
         });
     }
 
-    // 6. Lightbox
+    // --- 6. Lightbox (Powiększanie zdjęć) ---
     const modalOverlay = document.getElementById('image-modal');
     if (modalOverlay) {
         const modalImg = document.getElementById('modal-img');
@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
     }
 
-    // 7. Status Godzin
+    // --- 7. Status Godzin Otwarcia ---
     checkOpenStatus();
 });
 
